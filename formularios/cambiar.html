@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cambiar Contraseña - AgroRecord</title>
+    <link rel="stylesheet" href="../activos/styles/login_resigtro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <form class="from" id="formularioCambiar">
+        <h1><span class="agro">Agro</span><span class="record">Record</span></h1>
+        <h2>Ingrese su nueva contraseña</h2>
+        <div class="contenedor">
+        
+          <div class="input-contenedor">
+            <i class="fa-solid fa-key icon"></i>
+            <input type="password" name="contraseña" id="contra" required>
+            <label>Contraseña</label>
+          </div>
+
+          <div class="input-contenedor">
+            <i class="fa-solid fa-key icon"></i>
+            <input type="password" name="pas1" id="contra_confi" required>
+            <label>Confirmar contraseña</label>
+          </div>
+          
+          <div id="error" class="alert alert-danger" role="alert">
+              Las contraseñas no coinciden
+          </div>
+          
+          <div id="ok" class="alert alert-success" role="alert">
+              Las contraseñas coinciden
+          </div>
+          
+          <input type="submit" name="register" value="Actualizar" class="button">
+          
+          <p>¿Recordaste la contraseña? <a class="link" href="./login.html">Inicio</a></p>
+        </div>
+    </form>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const contra = document.getElementById('contra');
+        const contra_confi = document.getElementById('contra_confi');
+        const error = document.getElementById('error');
+        const ok = document.getElementById('ok');
+        
+        function validatePassword() {
+          if(contra.value !== contra_confi.value) {
+            error.style.display = 'block';
+            ok.style.display = 'none';
+          } else {
+            error.style.display = 'none';
+            ok.style.display = 'block';
+          }
+        }
+        
+        contra.addEventListener('input', validatePassword);
+        contra_confi.addEventListener('input', validatePassword);
+      });
+    </script>
+
+</body>
+</html>

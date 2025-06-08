@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>app</title>
+    <link rel="stylesheet" href="../activos/styles/login_resigtro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <form class="from" id="formularioLogin">
+        <h1><span class="agro">Agro</span><span class="record">Record</span></h1>
+        <h2>Iniciar sesión</h2>
+        <div class="contenedor">
+        
+        <div class="input-contenedor">
+        <i class="fa-solid fa-user icon"></i>
+        <input type="text" name="usuario" id="usuario" required>
+        <label for="usuario">Usuario</label>
+        </div>
+        
+        <div class="input-contenedor">
+        <i class="fa-solid fa-key icon"></i>
+        <input type="password" name="contraseña" id="contraseña" required>
+        <label for="contraseña">Contraseña</label>
+        </div>
+
+        <div id="mensajeLogin" style="margin: 10px 0; text-align: center;"></div>
+    
+        <input type="submit" name="register" value="Iniciar" class="button">
+        <br>
+        <p>¿Aún no tienes una cuenta?<a class="link" href="./registro.html">Registrarse</a> <br>
+        ¿Olvidaste tu contraseña?<a class="link" href="./recuperar.html">Cambiar contraseña</a></p>
+        </div>
+    </form>
+
+    <script src="../activos/js/login_registro.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+para ejecutar el proyecto se debe abrir la dirección del proyecto (abrir la carpeta en vs) y después en la terminal del proyecto escribir esto:
+
+node activos/js/server.js
+
+puesto que node debe buscar el archivo server que esta en esa direccion

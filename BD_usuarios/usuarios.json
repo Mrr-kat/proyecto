@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombreUsuario": "ser",
+    "nombreCompleto": "ser123",
+    "email": "sabonilla38@ucatolica.edu.co",
+    "password": "12345678"
+  },
+  {
+    "id": 2,
+    "nombreUsuario": "mk",
+    "nombreCompleto": "sergio bon",
+    "email": "hola@hola",
+    "password": "123456"
+  }
+]

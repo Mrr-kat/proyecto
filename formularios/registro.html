@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Registro - AgroRecord</title>
+    <link rel="stylesheet" href="../activos/styles/login_resigtro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <form class="from registro" id="formularioRegistro" method="post">
+        <h1><span class="agro">Agro</span><span class="record">Record</span></h1>            
+        <div class="contenedor">
+    
+            <h2>Registrarse</h2>
+            
+            <div class="input-contenedor">
+              <i class="fa-solid fa-user icon"></i>
+              <input type="text" name="usuario" id="usuario" required> 
+              <label for="usuario">Nombre de usuario</label>
+            </div>
+            
+            <div class="input-contenedor">
+              <i class="fa-solid fa-id-card icon"></i>
+              <input type="text" name="name" id="name" required>
+              <label for="name">Nombre y Apellido</label>
+            </div>
+            
+            <div class="input-contenedor">
+              <i class="fa-solid fa-envelope icon"></i>
+              <input type="email" name="email" id="email" required>
+              <label for="email">Correo electrónico</label>
+            </div>
+            
+            <div class="input-contenedor">
+              <i class="fa-solid fa-key icon"></i>
+              <input type="password" name="contraseña" id="password" required>
+              <label for="password">Contraseña</label>
+            </div>
+
+            <div id="mensajeRegistro" style="margin: 10px 0; text-align: center;"></div>
+     
+            <input type="submit" name="register" value="Registrarse" class="button">
+            
+            <p>Al registrarte, aceptas nuestras <a href="#" class="link">Condiciones de uso</a> y <a href="#" class="link">Política de privacidad</a>.</p>
+            <p>¿Ya tienes una cuenta? <a class="link" href="./login.html">Iniciar Sesión</a></p>
+        </div>
+    </form>
+    
+</body>
+<script src="../activos/js/login_registro.js" ></script>
+</html>

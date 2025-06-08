@@ -1,0 +1,305 @@
+/* Fuentes y estilos base */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f5f9f1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+/* Estilos del formulario (compartidos) */
+.from {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 60, 30, 0.2);
+  width: 450px;
+  border: 1px solid #e1f0d9;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.from::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #4a8c2e, #a3d681);
+}
+
+.from h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.from h1 .agro {
+  color: #4a8c2e;
+  font-weight: 600;
+}
+
+.from h1 .record {
+  color: #000000;
+  font-weight: 600;
+}
+
+.from h2 {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Estilos de los inputs */
+.input-contenedor {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-contenedor input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 2px solid #d8dbd6;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+  background-color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.input-contenedor input:focus {
+  box-shadow: 0 0 0 3px rgba(74, 140, 46, 0.2);
+  outline: none;
+}
+
+.input-contenedor input:focus + label,
+.input-contenedor input:valid + label {
+  transform: translateY(-25px) translateX(-10px) scale(0.9);
+  background-color: #f9fdf7;
+  padding: 0 5px;
+  color: #4a8c2e;
+}
+
+.input-contenedor label {
+  position: absolute;
+  left: 45px;
+  top: 15px;
+  color: #7a9f6a;
+  transition: all 0.3s;
+  pointer-events: none;
+  font-size: 15px;
+}
+
+.input-contenedor .icon {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #4a8c2e;
+  font-size: 18px;
+}
+
+/* Estilos del botón */
+.button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.button:hover {
+  background: linear-gradient(to right, #3e7a25, #5aa838);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 140, 46, 0.3);
+}
+
+/* Estilos del texto y enlaces */
+.from p {
+  color: #5a7350;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.link {
+  color: #4a8c2e;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.link:hover {
+  color: #3e7a25;
+  text-decoration: underline;
+}
+
+/* Estilos para mensajes de alerta */
+.alert {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+  display: none; 
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.ocultar {
+  display: none;
+}
+
+
+/* ========================================= */
+/* Estilos Responsive para móviles */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  body {
+    background-image: none;
+    background-color: #f5f9f1;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+  }
+
+  .from {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    padding: 40px 25px;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .from h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .from h2 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+
+  .input-contenedor input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .from::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .from {
+    padding: 30px 20px;
+  }
+
+  .from h1 {
+    font-size: 1.6rem;
+  }
+
+  .from h2 {
+    font-size: 1.2rem;
+  }
+
+  .input-contenedor input {
+    padding: 12px 12px 12px 40px;
+    font-size: 15px;
+  }
+
+  .input-contenedor label {
+    font-size: 14px;
+    left: 40px;
+    top: 12px;
+  }
+
+  .input-contenedor .icon {
+    font-size: 16px;
+    left: 12px;
+    top: 12px;
+  }
+
+  .from p {
+    font-size: 13px;
+  }
+
+  .alert {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+/* Pequeños ajustes para pantallas muy pequeñas */
+@media (max-width: 375px) {
+  .from {
+    padding: 25px 15px;
+  }
+
+  .from h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-contenedor input {
+    padding: 10px 10px 10px 35px;
+  }
+}

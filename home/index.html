@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="./css/calculadora.css">
+  <link rel="stylesheet" href="./css/styles_index.css">
+  <link rel="stylesheet" href="./css/navegador.css">
+  <link rel="stylesheet" href="./css/bomba_btn.css">
+</head>
+
+<body>
+
+  <!--///////////////////////animacion///////////////////////////-->
+  <div class="fondo">
+    <div class="cuadro">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <button type="button" id="boton_agregar" class="boton_agregar" onclick="mostrarCrear()">+</button>
+  <button class="cerrar_sesion_btn" id="cerrar_sesionBTN">Cerrar Sesión</button>
+
+  <!--///////////////////////Navegador///////////////////////////--> 
+  
+<div id="contenedor_navegacion">
+    <div class="barra_navegacion">
+      <ul>
+        <li class="item_navegacion item_activo">
+          <a href="#" onclick="establecer_activo(0)">
+            <span class="icono_navegacion">
+              <ion-icon class="icono_ion" name="home-outline"></ion-icon>
+            </span>
+            <span class="texto_navegacion">Todo</span>
+          </a>
+        </li>
+        <li class="item_navegacion">
+          <a href="#" onclick="establecer_activo(1)">
+            <span class="icono_navegacion">
+              <ion-icon class="icono_ion" name="warning-outline"></ion-icon>
+            </span>
+            <span class="texto_navegacion">Urgente</span>
+          </a>
+        </li>
+        <li class="item_navegacion">
+          <a href="#" onclick="establecer_activo(2)">
+            <span class="icono_navegacion">
+              <ion-icon class="icono_ion" name="calculator-outline"></ion-icon>
+            </span>
+            <span class="texto_navegacion">Calculadora</span>
+          </a>
+        </li>
+        <li class="item_navegacion">
+          <a href="#" onclick="establecer_activo(3)">
+            <span class="icono_navegacion">
+              <ion-icon class="icono_ion" name="water-outline"></ion-icon>
+            </span>
+            <span class="texto_navegacion">Bomba</span>
+          </a>
+        </li>
+        <div class="indicador_activo"></div>
+      </ul>
+    </div>
+</div>
+
+  <!--///////////////////////Leer///////////////////////////--> 
+
+  <div id="seccion_leer">
+    <br><br><br><br><br><br><br><br><br>
+    <div class="contenedor_tareas" id="contenedor_tareas">
+      <!-- Notificaciones -->
+      <div id="contenedor_notificaciones" class="notificaciones-container"></div>
+    </div>
+  </div>
+
+
+  <!--///////////////////////Urgente///////////////////////////--> 
+
+  <div id="seccion_urgente" style="display: none;">
+    <br><br><br><br><br><br><br><br><br>
+    <div class="contenedor_tareas" id="contenedor_urgente">
+      <!-- Aquí se insertarán dinámicamente las tareas urgentes -->
+      <div id="contenedor_tareas_urgentes" class="notificaciones-container"></div>
+    </div>
+  </div>
+
+  <!--///////////////////////Calculadora///////////////////////////-->
+
+  <div id="seccion_calculadora">
+  <br><br><br><br>
+  <div class="contenedor_calculadora">
+    <div class="calculadora">
+      <div class="display">
+        <div id="valor_anterior"></div>
+        <div id="valor_actual"></div>
+      </div>
+
+      <!-- Fila de acciones -->
+      <button class="operador" id="borrar_todo">C</button>
+      <button class="operador" id="borrar">&larr;</button>
+      <button class="operador" value="dividir">/</button>
+      <button class="operador" value="multiplicar">x</button>
+
+      <!-- Fila 7 8 9 - -->
+      <button class="numero" value="7">7</button>
+      <button class="numero" value="8">8</button>
+      <button class="numero" value="9">9</button>
+      <button class="operador" value="restar">-</button>
+
+      <!-- Fila 4 5 6 + -->
+      <button class="numero" value="4">4</button>
+      <button class="numero" value="5">5</button>
+      <button class="numero" value="6">6</button>
+      <button class="operador" value="sumar">+</button>
+
+      <!-- Fila 1 2 3 = -->
+      <button class="numero" value="1">1</button>
+      <button class="numero" value="2">2</button>
+      <button class="numero" value="3">3</button>
+      <button class="operador" value="igual">=</button>
+
+      <!-- Fila 0 . -->
+      <button class="numero" value="0">0</button>
+      <button class="numero" value=".">.</button>
+
+    </div>
+  </div>
+</div>
+
+  <!--///////////////////////BTN_Bomba///////////////////////////--> 
+
+<div id="seccion_btn_bomba">
+  <br><br><br><br>
+  <div class="contenedor_bomba">
+    <div class="panel_bomba">
+      <h2 class="text-center text-white">Control de Bomba de Agua</h2>
+      <div class="estado_bomba">
+        <ion-icon name="water-outline" id="icono_bomba"></ion-icon>
+        <p id="estado_texto">Bomba: <span id="texto_estado">APAGADA</span></p>
+      </div>
+      <!-- Botón único que alterna entre encender/apagar -->
+      <button id="boton_control_bomba" class="btn_bomba btn_bomba_apagada" onclick="alternarBomba()">
+        ENCENDER BOMBA
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  
+  <!--///////////////////////Crear///////////////////////////-->
+
+  <div id="seccion_crear">
+    <div class="text-center p-2 text-white">
+      <h1>Tarea pendiente</h1>
+    </div>
+    <br>
+    <div class="container">
+      <div class="container mb-5 formulario_tarea">
+        <div class="row">
+          <div class="mb-3">
+            <label class="form-label tit">Título</label>
+            <input type="text" class="form-control" id="input_titulo" placeholder="Título tarea">
+          </div>
+          <div class="mb-3">
+            <label class="form-label tit">Descripción</label>
+            <textarea type="text" class="form-control" id="input_descripcion" placeholder="Descripción Tarea"
+              cols="30" rows="5"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label tit">Fecha de entrega</label>
+            <input type="date" class="form-control" id="input_fecha" placeholder="Fecha tarea">
+          </div>
+          
+           <!--///////////////////////BOMBA_HORA///////////////////////////-->
+          <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="activar_bomba_checkbox" onclick="mostrarOpcionesBomba('activar_bomba_checkbox', 'opciones_bomba_crear')">
+            <label class="form-check-label tit" for="activar_bomba_checkbox">
+              Con acción de bomba de agua
+            </label>
+          </div>
+        </div>
+        <div id="opciones_bomba_crear" style="display: none;">
+          <div class="mb-3">
+            <label class="form-label tit">Hora de activación</label>
+            <input type="time" class="form-control" id="hora_bomba_crear">
+          </div>
+          <div class="mb-3">
+            <label class="form-label tit">Duración</label>
+            <select class="form-select" id="duracion_bomba_crear">
+              <option value="1">1 minuto</option>
+              <option value="3">3 minutos</option>
+              <option value="5">5 minutos</option>
+            </select>
+          </div>
+        </div>
+         <!--///////////////////////////////////////////////////////////-->
+
+
+          <div class="container">
+            <button type="button" class="btn btn-primary" id="boton_guardar" onclick="crear_tarea()">Guardar</button>            
+            <button type="button" class="btn btn-danger" onclick="salir()">Cancelar</button>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--///////////////////////Editar///////////////////////////-->
+
+  <div id="seccion_editar">
+    <div class="text-center p-2 text-white">
+      <h1>Editar tarea</h1>
+    </div>
+    <br>
+    <div class="container">
+      <div class="container mb-5 formulario_tarea">
+        <div class="row">
+          <div class="mb-3">
+            <label class="form-label tit">Título</label>
+            <input type="text" class="form-control" id="editar_titulo" placeholder="Título tarea">
+          </div>
+          <div class="mb-3">
+            <label class="form-label tit">Descripción</label>
+            <textarea type="text" class="form-control" id="editar_descripcion" placeholder="Descripción Tarea" cols="30" rows="5"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label tit">Fecha de entrega</label>
+            <input type="date" class="form-control" id="editar_fecha" placeholder="Fecha tarea">
+          </div>
+          
+          <!--///////////////////////BOMBA_HORA_e///////////////////////////-->
+          <div cclass="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="editar_bomba_checkbox" onclick="mostrarOpcionesBomba('editar_bomba_checkbox', 'opciones_bomba_editar')">
+            <label class="form-check-label tit" for="editar_bomba_checkbox">
+              Con acción de bomba de agua
+            </label>
+          </div>
+        </div>
+
+        <div id="opciones_bomba_editar" style="display: none;">
+          <div class="mb-3">
+            <label class="form-label tit">Hora de activación</label>
+            <input type="time" class="form-control" id="hora_bomba_editar">
+          </div>
+          <div class="mb-3">
+            <label class="form-label tit">Duración</label>
+            <select class="form-select" id="duracion_bomba_editar">
+              <option value="1">1 minuto</option>
+              <option value="3">3 minutos</option>
+              <option value="5">5 minutos</option>
+            </select>
+          </div>
+        </div>
+        <!--//////////////////////////////////////////////////////////-->
+
+          <div class="container">
+            <button type="button" class="btn btn-primary" id="boton_actualizar" onclick="actualizar_recordatorio()">Actualizar</button>
+            <button type="button" class="btn btn-danger" onclick="salir()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/funciones/CRUD_recordatorios.js"></script>
+  <script src="js/funciones/funciones.js"></script>
+  <script src="js/funciones/sistema_notificaciones.js"></script>
+  <script src="./js/conexion_arduino/conexion_arduino.js"></script>
+  <script src="./js/funciones/urgente.js"></script>
+  <script src="../activos/js/app_cerrar.js"></script>
+
+  <script src="./js/calculo/calculadoras.js"></script>
+  <script src="./js/calculo/display.js"></script>
+  <script src="./js/calculo/tex.js"></script>
+
+</body>
+
+<script>
+    const usuarioActual = localStorage.getItem("usuarioActual");
+    if (!usuarioActual) {
+        // Redirigir al login con un mensaje
+        window.location.href = "../formularios/login.html?mensaje=Debe iniciar sesión primero";
+    }
+</script>
+
+
+
+
+
+
+</html>
